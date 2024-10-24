@@ -14,9 +14,9 @@
 <body>
 
 	<ul>
-		<li><a href="index.php?page1">études</a></li>
-		<li><a href="index.php?page2">formations</a></li>
-		<li><a href="index.php?page3">contact</a></li>
+		<li><a href="index.php?page=1">études</a></li>
+		<li><a href="index.php?page=2">formations</a></li>
+		<li><a href="index.php?page=3">contact</a></li>
 		
 	</ul>
 	<main>
@@ -24,33 +24,30 @@
 
 	
 			
-<section>
-	<h2>🚀 Présentation</h2>
-		<p>
-			Depuis sa création en 1984, l’EDW a choisi de s’implanter dans des villes créatives et 
-			dynamiques. Présente sur 5 campus en France (Paris, Bordeaux, Aix-en-Provence, Nantes, Lille) 
-			et 6 à l’étranger (dont 4 campus membres du réseau AD Education*), l’EDW est 
-			l’école de référence dans les secteurs du Design, du Digital, de l’Animation et du Jeu vidéo.
-		</p>
-</section>
-<div class="grid-img">
-	<h2>Nos compus en France</h2>
-	<ul>
-		<li><img src="public/asset/ambiance_01.jpg" alt="Paris"></li>
-		<li><img src="public/asset/nantes.jpg" alt="Nantes"></li>
-		<li><img src="public/asset/bordeaux.jpg" alt="Bordeaux"></li>
-	</ul>
-</div>
-<!--icones-->
-	<div class="grid-icone">
-		<h2>Nous suivre</h2>public
-		<ul>
-			<li><img src="public/icones/logo_facebook_3225194.png" alt="FB"></li>
-			<li><img src="public/icones/logo_twitter_3225183.png" alt="Instagram"></li>
-			<li><img src="public/icones/logo_instagram_3225191.png" alt="Instagram"></li>
-			<li><img src="public//icones/logo_linkedin_3225190.png" alt="Instagram"></li>
-		</ul>
-	</div>
+<?php  
+if(isset($_GET['page']))
+ {   print"Numero de page :" .$_GET['page']; 
+
+}    
+
+
+    #condition imbriquées
+$views = $_GET['page'];
+if($views == 1){
+    include_once __DIR__ .'/views/presentation.html';
+}
+if($views == 2){
+    include_once __DIR__ .'/views/formation.html';
+}
+if($views == 3){
+    include_once __DIR__ .'/views/contact.html';
+}
+else if($views >=3 || $views <=0 ){
+print "<p>Erreur : la page n'existe pas";
+
+}
+
+?>
 
 	</main>
 <footer>
